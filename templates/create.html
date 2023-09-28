@@ -9,21 +9,22 @@
 <body>
     <h1>Create page</h1>
 
-    <form>
+    <form method="POST">
+        {% csrf_token %}
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>
-          <input type="text" class="form-control" id="name">
+          <input type="text" class="form-control" id="name" name="name">
         </div>
         <div class="mb-3">
             <label for="description">Description</label>
-            <textarea class="form-control" id="description" style="height: 100px"></textarea>
+            <textarea class="form-control" id="description" style="height: 100px" name="description"></textarea>
         </div>
         <div class="mb-3">
-            <select class="form-select" aria-label="Default select example">
+            <select class="form-select" aria-label="Default select example" name="status">
                 <option selected>Select status</option>
-                <option value="1">Done</option>
-                <option value="2">In progress</option>
-                <option value="3">Not done</option>
+                <option value="Done">Done</option>
+                <option value="In progress">In progress</option>
+                <option value="Not done">Not done</option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
