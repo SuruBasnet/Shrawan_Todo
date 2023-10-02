@@ -16,4 +16,10 @@ def create(request):
         status = request.POST.get('status')
         ToDo.objects.create(name=name,description=description,status=status)
         return redirect('home')
-    return render(request,'create.html')
+    content = {'mode':'create'}
+    return render(request,'create.html',context=content)
+
+def edit(request,pk):
+    content = {'mode':'edit'}
+    todo_object = ToDo.objects.get(id=pk)
+    return render(request,'create.html',context=content)

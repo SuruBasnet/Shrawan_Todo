@@ -7,28 +7,51 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>Create page</h1>
+    {% include 'nav.html' %}
 
-    <form method="POST">
-        {% csrf_token %}
-        <div class="mb-3">
-          <label for="name" class="form-label">Name</label>
-          <input type="text" class="form-control" id="name" name="name">
-        </div>
-        <div class="mb-3">
-            <label for="description">Description</label>
-            <textarea class="form-control" id="description" style="height: 100px" name="description"></textarea>
-        </div>
-        <div class="mb-3">
-            <select class="form-select" aria-label="Default select example" name="status">
-                <option selected>Select status</option>
-                <option value="Done">Done</option>
-                <option value="In progress">In progress</option>
-                <option value="Not done">Not done</option>
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+    {% if mode == 'create' %}
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name">
+            </div>
+            <div class="mb-3">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" style="height: 100px" name="description"></textarea>
+            </div>
+            <div class="mb-3">
+                <select class="form-select" aria-label="Default select example" name="status">
+                    <option selected>Select status</option>
+                    <option value="Done">Done</option>
+                    <option value="In progress">In progress</option>
+                    <option value="Not done">Not done</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    {% elif mode == 'edit' %}
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name">
+            </div>
+            <div class="mb-3">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" style="height: 100px" name="description"></textarea>
+            </div>
+            <div class="mb-3">
+                <select class="form-select" aria-label="Default select example" name="status">
+                    <option selected>Select status</option>
+                    <option value="Done">Done</option>
+                    <option value="In progress">In progress</option>
+                    <option value="Not done">Not done</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    {% endif %}
 </body>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
