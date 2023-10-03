@@ -28,7 +28,7 @@
                         <td>{{i.name}}</td>
                         <td>{{i.description}}</td>
                         <td>{{i.status}}</td>
-                        <td><a href="{% url 'edit' %}"><button type="button" class="btn btn-warning">Edit</button></a></td>
+                        <td><a href="{% url 'edit' pk=i.id %}"><button type="button" class="btn btn-warning">Edit</button></a> &nbsp; <a href="{% url 'delete' pk=i.id %}"><button type="button" class="btn btn-danger">Delete</button></a></td>
                     </tr>
             {% endfor %}
         </tbody>
